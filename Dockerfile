@@ -1,5 +1,5 @@
 FROM postgres:17 AS postgres
-RUN apt upgrade -y && apt update -y && \
+RUN apt update -y && apt upgrade -y && \
     apt install -y postgresql-17-cron postgresql-17-http
-COPY ./load-extensions.sh /docker-entrypoint-initdb.d/
+COPY ./entrypoint.d/* /docker-entrypoint-initdb.d/
 
